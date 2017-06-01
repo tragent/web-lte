@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,37 +23,22 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+    <div>
+      <div class="header">
+        <div ng-include="'/views/shared/navbar.html'" ng-if="location.path() !== '/login' && location.path() !== '/signup'"></div>
+      </div>
+
+      <div class="container">
+        <div ng-include="'/views/shared/sidebar.html'" ng-if="location.path() !== '/login' && location.path() !== '/signup'"></div>
+        <div class="view" ng-view=""></div>
+      </div>
+
+      <div class="footer">
         <div class="container">
-          <div class="navbar-header">
-
-            <a class="navbar-brand" href="#/">webLte</a>
-          </div>
-
-          <div class="collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
+          <p><span class="glyphicon glyphicon-heart"></span></p>
         </div>
       </div>
     </div>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span></p>
-      </div>
-    </div>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -84,12 +70,11 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/signup.js"></script>
-        <script src="scripts/controllers/jquery.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/dashboard.js"></script>
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/controllers/main/signupController.js"></script>
+        <script src="scripts/controllers/main/loginController.js"></script>
+        <script src="scripts/controllers/DashBoard/dashboardController.js"></script>
+        <script src="scripts/controllers/UploadDoc/uploadDocController.js"></script>
         <!-- endbuild -->
 
 </body>

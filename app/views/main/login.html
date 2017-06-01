@@ -1,0 +1,25 @@
+<div id="login" class="row">
+	<form ng-submit="login()" name="loginForm" novalidate class="col s6 offset-s3 z-depth-2">
+		<div class="row">
+		  <div class="input-field col s10 offset-s1">
+		  	<i class="fa fa-user-circle-o prefix" aria-hidden="true"></i>
+			  <input id="username" type="text" class="validate">
+	      <label for="username">Username</label>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="input-field col s10 offset-s1">
+		  	<i class="fa fa-unlock-alt prefix" aria-hidden="true"></i>
+     	  <input id="password" type="password" class="validate">
+        <label for="password">Password</label>
+		  </div>
+	  </div>
+		<div class="row">
+      <div class="input-field col s3 offset-s7">
+      	<button class="btn light-blue darken-1" type="submit" name="action">
+      		<span>Login</span>
+      	</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -9,15 +9,4 @@
  */
 angular.module('webLteApp')
   .controller('SignupCtrl', function ($scope) {
-
-  	$scope.person = {
-  		var username ="";
-  		var email ="";
-  		var phoneNumber ="";
-  		var password ="";
-  		var confirmPassword ="";
-
-  	}
-  	
-  	$scope.person = person;
   });

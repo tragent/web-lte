@@ -1,0 +1,30 @@
+<div class="sidebar">
+  <ul id="slide-out" class="side-nav fixed">
+    <li><div class="userView">
+      <div class="background">
+        <img width="300" height="270" src="images/logo.png">
+      </div>
+      <!-- <a href="#!user"><img class="circle" src="images/logo.png"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>-->
+    </div></li>
+    <li ng-class="{ active: isActive('/dashboard')}">
+    <a href="http://localhost:9000/#!/dashboard" class="light-blue-text text-darken-4">
+      <i class="fa fa-tachometer fa-2x light-blue-text text-darken-4" aria-hidden="true"></i>
+      <span>Dashboard</span>
+    </a></li>
+    <li ng-class="{ active: isActive('/archive')}">
+    <a href="http://localhost:9000/#!/archive" class="light-blue-text text-darken-4">
+      <i class="fa fa-archive fa-2x white-text light-blue-text text-darken-4" aria-hidden="true"></i>
+      <span>Uploaded files</span>
+    </a></li>
+    <li><a href="#!" class="light-blue-text text-darken-4">
+      <i class="fa fa-line-chart fa-2x white-text light-blue-text text-darken-4" aria-hidden="true"></i>
+      <span>Analysis</span>
+    </a></li>
+    <li><a href="#!" class="light-blue-text text-darken-4">
+      <i class="fa fa-area-chart fa-2x white-text light-blue-text text-darken-4" aria-hidden="true"></i>
+      <span>Graphs and charts</span>
+    </a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"></a>
+</div>
