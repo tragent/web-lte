@@ -1,0 +1,69 @@
+body {
+	width: 100%;
+	height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+span{
+    font-size: 16px
+}
+.main, .footer {
+  padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+	.main, .footer {
+    padding-left: 0px;
+  }
+}
+
+.view {
+    padding-left: 20%;
+}
+
+nav {
+    height: 40px;
+    line-height: 40px;
+}
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 40px;
+    line-height: 40px;
+}
+nav .button-collapse i {
+    height: 40px;
+    line-height: 40px;
+}
+nav .brand-logo {
+    font-size: 1.6rem;
+}
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+
+.sidebar ul{
+    margin-top: 40px;
+}
+.sidebar .userView {
+    height: 280px;
+}
+
+.sidebar ul li.active a {
+    background-color: #fff;
+    border-bottom: 2px solid #337a90;
+  }
+
+.input-field .prefix.active, .input-field input:focus + label {
+  color: #000 !important;
+}
+.input-field input:focus {
+ 		border-bottom: 1px solid #0089ec;
+    box-shadow: 0 1px 0 0 #0089ec;
+ }
+
+#signup {
+	margin-top: 5%
+}
+#login {
+	margin-top: 17%
+}
