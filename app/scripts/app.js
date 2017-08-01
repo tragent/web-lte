@@ -15,9 +15,13 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'chart.js'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, ChartJsProvider) {
+    (function (ChartJsProvider) {
+      ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+    }); 
     $routeProvider
       .when('/signup', {
         templateUrl: 'views/main/signup.html',
@@ -30,6 +34,14 @@ angular
       .when('/dashboard', {
         templateUrl: 'views/dashboard/dashboard.html',
         controller: 'DashboardCtrl'
+      })
+      .when('/analysis', {
+        templateUrl: 'views/analysis/analysis.html',
+        controller: 'AnalysisCtrl'
+      })
+      .when('/graphs', {
+        templateUrl: 'views/graphs/graphs.html',
+        controller: 'GraphCtrl'
       })
       .when('/archive', {
         templateUrl: 'views/uploadDoc/uploadDoc.html',
