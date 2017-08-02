@@ -1,18 +1,12 @@
 <div class="container">
+	<br><br><br>
+	<h5>Select Excel Files to be uploaded</h5>
+	<br><br>
 	<form>
 	  <div class="file-field input-field">
 	    <div class="btn green darken-1">
 	      <span>File</span>
-	      <input type="file">
-	    </div>
-	    <div class="file-path-wrapper">
-	      <input class="file-path validate" type="text">
-	    </div>
-	  </div>
-	  <div class="file-field input-field">
-	    <div class="btn green darken-1">
-	      <span>File</span>
-	      <input type="file">
+	      <input name="file" ng-value="fileToUpload" value="{{fileToUpload}}" file-model="fileToUpload" set-file-data="fileToUpload = value;" type="file" id="my_file" />
 	    </div>
 	    <div class="file-path-wrapper">
 	      <input class="file-path validate" type="text">
