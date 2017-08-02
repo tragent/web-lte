@@ -1,3 +1,41 @@
 <div>
-
+    <h3>Analyze Data</h3>
+    <div class="row">
+        <div class="col s12 m3">
+            <input type="text" class="datepicker" placeholder="Start Date" ng-model="startDate">
+        </div>
+        <div class="col s12 m3">
+            <input type="text" class="timepicker" placeholder="Start Time" ng-model="startTime">
+        </div>
+        <div class="col s12 m3">
+            <input type="text" class="datepicker" placeholder="End Date" ng-model="endDate">
+        </div>
+        <div class="col s12 m3">
+            <input type="text" class="timepicker" placeholder="End Time" ng-model="endTime">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4"></div>
+        <div class="col s12 m4">
+            <a class="waves-effect waves-light btn" ng-click="runAnalysis()">Run Analysis</a>
+        </div>
+        <div class="col s12 m4"></div>
+    </div>
+    <div class="row">
+        <br>
+        <h5>Test Graph 1</h5>
+        <br><br>
+        <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+        <br><br>
+        <h5>Test Graph 2</h5>
+        <br><br>
+        <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
+        <br>
+    </div>
 </div>
