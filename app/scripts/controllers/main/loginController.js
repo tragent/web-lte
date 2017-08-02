@@ -18,6 +18,7 @@ angular.module('webLteApp')
     })();
 
   	$scope.login = function(){
+		  	$location.path('/dashboard');
 			console.log("submitted");
 			$rootScope.username = $scope.username;
 			$rootScope.password = $scope.password;

@@ -18,10 +18,12 @@ angular
     'ngTouch',
     'chart.js'
   ])
-  .config(function ($routeProvider, ChartJsProvider) {
+  .config(function ($routeProvider, ChartJsProvider, $httpProvider) {
     (function (ChartJsProvider) {
       ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
     }); 
+    $httpProvider.defaults.headers.post['Accept'] = 'application/json, text/javascript'; $httpProvider.defaults.headers.post['Content-Type'] = 'multipart/form-data; charset=utf-8';
+
     $routeProvider
       .when('/signup', {
         templateUrl: 'views/main/signup.html',
