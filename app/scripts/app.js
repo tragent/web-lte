@@ -20,7 +20,7 @@ angular
   ])
   .config(function ($routeProvider, ChartJsProvider, $httpProvider) {
     (function (ChartJsProvider) {
-      ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+      ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'], responsive: true });
     }); 
     $httpProvider.defaults.headers.post['Accept'] = 'application/json, text/javascript'; $httpProvider.defaults.headers.post['Content-Type'] = 'multipart/form-data; charset=utf-8';
 

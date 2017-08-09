@@ -11,22 +11,30 @@ angular.module('webLteApp')
   .controller('UploadDocCtrl', ['$scope', 'DataService',
     function($scope, DataService) {
 			var files = [];
+			$scope.errMsg = false;
 
 			$scope.uploadFile = function() {
+				$scope.errMsg = false;
 				var file = $scope.firstFile;
 				var secFile = $scope.secFile;
-			
-				Object.assign(files, [file, secFile]);
 
+				if (file == undefined && secFile) {
+					files.push(secFile);
+				} else if(file && secFile == undefined) {
+					files.push(file);
+				} else if (file && secFile) {
+					Object.assign(files, [file, secFile]);
+				} else if(file == undefined && secFile == undefined) { $scope.errMsg = true; }
+				
 				// upload files to the server
-				for(file in files) {
+				files.forEach(function(file){
 					DataService.uploadFile(file)
 						.then(function(response) {
 							Materialize.toast('Successfully uploaded file to server', 3000, 'rounded');
 						}, function(error){
           		Materialize.toast('Error: Failed to upload file. Try Again', 3000, 'rounded');
 						});
-				}
+				});
 			}
 	}])
 	.directive('fileModel', ['$parse', function($parse) {

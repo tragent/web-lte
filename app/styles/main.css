@@ -68,3 +68,16 @@ nav .brand-logo {
 #login {
 	margin-top: 20%;
 }
+.errMsg {
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
+}
+
+.refBtn {
+    float: right;
+}
+
+.chip {
+    cursor: pointer;
+}
