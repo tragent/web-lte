@@ -13,7 +13,9 @@ angular.module('webLteApp')
         };
 
         DataService.uploadFile = function(file) {
-            var fileUploadUrl = $rootScope.BASE_URL + file.name;
+            console.log(file);
+            var fileUploadUrl = $rootScope.BASE_URL + 'uploads?file=' + file.name;
+            console.log(fileUploadUrl);
             var fd = new FormData();
             fd.append('file', file);
 
@@ -25,6 +27,7 @@ angular.module('webLteApp')
         };
 
         DataService.getS1Data = function() {
+            console.log("Service...");
             var dataUrl = $rootScope.BASE_URL + "s1data";
             return $http.get(dataUrl, config);
         }
