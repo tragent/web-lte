@@ -8,8 +8,8 @@
  * Controller of the webLteApp
  */
 angular.module('webLteApp')
-	.controller('LoginCtrl', [ '$scope', '$rootScope', '$location', 'AuthService',
-	function ($scope, $rootScope, $location, AuthService) {
+	.controller('LoginCtrl', [ '$scope', '$rootScope', '$location', 'AuthService', '$cookieStore',
+	function ($scope, $rootScope, $location, AuthService, $cookieStore) {
 
 		(function initController() {
       AuthService.clearCredentials();
@@ -18,7 +18,6 @@ angular.module('webLteApp')
     })();
 
   	$scope.login = function(){
-		  	$location.path('/dashboard');
 			console.log("submitted");
 			$rootScope.username = $scope.username;
 			$rootScope.password = $scope.password;
@@ -31,7 +30,7 @@ angular.module('webLteApp')
 					};
 					console.log(response.data.firstName);
 					$cookieStore.put("user", usr);
-					location.path('/dashboard');
+					$location.path('/dashboard');
 				}, function(error){
 					console.log("Error logging in user");
 				})

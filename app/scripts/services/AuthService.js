@@ -15,11 +15,15 @@ angular.module('webLteApp')
             var config = {
                 cache: false,
                 dataType: 'json',
-                authorization: 'Basic YWRtaW46cGFzc3dvcmQ=',
                 contentType: "application/json; charset=utf-8"
             };
-            var authKeyRequest = $rootScope.BASE_URL + "auth";
-            return $http.get(authKeyRequest, config);
+            var authKeyRequest = $rootScope.BASE_URL + "users";
+            return $http.get(authKeyRequest, {
+              headers: {
+                "Authorization": 'Basic YWRtaW46cGFzc3dvcmQ=',
+                "Content-Type": 'application/json'
+              }
+            });
         };
 
         AuthService.signup = function(firstName, lastName, userName, password, phone) {
@@ -34,7 +38,7 @@ angular.module('webLteApp')
                     authdata: authdata
                 }
             };
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + key;
+            $http.defaults.headers.common['Authorization'] = 'Basic YWRtaW46cGFzc3dvcmQ=';
             $cookieStore.put('globals', $rootScope.globals);
         };
 
