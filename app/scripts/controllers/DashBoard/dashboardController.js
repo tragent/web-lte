@@ -8,6 +8,4 @@
  * Controller of the webLteApp
  */
 angular.module('webLteApp')
-  .controller('DashboardCtrl', ['$scope', function($scope) {
-      
-  }]);
+  .controller('DashboardCtrl', ['$scope', function($scope) {}]);

@@ -8,7 +8,16 @@
  * Controller of the webLteApp
  */
 angular.module('webLteApp')
-  .controller('GraphCtrl', [ '$scope', '$location', function ($scope, $location) {
+  .controller('GraphCtrl', [ '$scope', '$location', 'DataService', 
+  function ($scope, $location, DataService) {
+      
+      // get all the data - probably paginate this if there is the possibilty of more data
+      DataService.getS1Data()
+        then(function(response) {
+          var data = response.data;
+        }, function(error) {
+
+        });
       
       $(document).ready(function() {
         $('.timepicker').pickatime({
