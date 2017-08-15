@@ -21,6 +21,7 @@ angular.module('webLteApp')
 			console.log("submitted");
 			$rootScope.username = $scope.username;
 			$rootScope.password = $scope.password;
+			// $location.path('/dashboard');
 
 			AuthService.login($scope.username, $scope.password)
 				.then(function(response) {

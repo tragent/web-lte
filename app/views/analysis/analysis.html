@@ -1,17 +1,29 @@
 <div>
-    <h3>Analyze Data</h3>
+    <h4>Analyze Data</h4>
     <div class="row">
-        <div class="col s12 m3">
+        <div class="col s12 m2">
             <input type="text" class="datepicker" placeholder="Start Date" ng-model="startDate">
         </div>
-        <div class="col s12 m3">
-            <input type="text" class="timepicker" placeholder="Start Time" ng-model="startTime">
-        </div>
-        <div class="col s12 m3">
+        <div class="col s12 m2">
             <input type="text" class="datepicker" placeholder="End Date" ng-model="endDate">
         </div>
-        <div class="col s12 m3">
-            <input type="text" class="timepicker" placeholder="End Time" ng-model="endTime">
+        <div class="col s12 m8">
+            <form action="#">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <p>
+                            <input name="group1" type="radio" id="test1" ng-model="result" value="aggregated" />
+                            <label for="test1">Aggregated Graphs</label>
+                        </p>
+                    </div>
+                    <div class="col s12 m6">
+                        <p>
+                            <input name="group1" type="radio" id="test2" ng-model="result" value="single"/>
+                            <label for="test2">Single Graphs</label>
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="row">
@@ -21,21 +33,218 @@
         </div>
         <div class="col s12 m4"></div>
     </div>
+    <div>
+    <br>
+    
+    <div class="row">
+        <div class="col s6 m3 l3">
+            <a href="#s1mode">
+                <div class="chip">
+                    S1 Mode Graph
+                </div>
+            </a>    
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#attachedUsers">
+                <div class="chip">
+                    Attached Users Graph&nbsp;
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#ip">
+                <div class="chip">
+                    IP Packets Graph&nbsp;
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#pdn">
+                <div class="chip">
+                    PDN Graph
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s6 m3 l3">
+            <a href="#sae">
+                <div class="chip">
+                    SAE Bearer Graph
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#downlink">
+                <div class="chip">
+                    Downlink Message
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#uplink">
+                <div class="chip">
+                    Uplink Message
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#realtime">
+                <div class="chip">
+                    Real Time PDN
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6 m3 l3">
+            <a href="#paging">
+                <div class="chip">
+                    Paging Graph
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#service">
+                <div class="chip">
+                    Service Request
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#maxU">
+                <div class="chip">
+                    Max Attached Users
+                </div>
+            </a>
+        </div>
+        <div class="col s6 m3 l3">
+            <a href="#realtimeU">
+                <div class="chip">
+                    RT Attached Users
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div ng-show="single">
     <div class="row">
         <br>
-        <h5>Test Graph 1</h5>
-        <br><br>
-        <canvas id="line" class="chart chart-line" chart-data="data"
-            chart-labels="labels" chart-series="series" chart-options="options"
-            chart-dataset-override="datasetOverride" chart-click="onClick">
-        </canvas>
-        <br><br>
-        <h5>Test Graph 2</h5>
-        <br><br>
-        <canvas id="line" class="chart chart-line" chart-data="data"
-            chart-labels="labels" chart-series="series" chart-options="options"
-            chart-dataset-override="datasetOverride" chart-click="onClick">
-        </canvas>
+        <h5>S1 Mode Graph</h5>
         <br>
+        <div class="section scrollspy" id="s1mode">
+            <canvas id="line" class="chart chart-line section scrollspy" chart-data="data"
+                chart-labels="labels" chart-series="series" chart-options="options"
+                chart-dataset-override="datasetOverride" chart-click="onClick" chart-colors="colors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>PDN Graph</h5>
+        <br>
+        <div class="section scrollspy" id="pdn">
+            <canvas id="line" class="chart chart-line" chart-data="pdnData"
+                chart-labels="pdnLabels" chart-series="pdnSeries" chart-options="pdnOptions"
+                chart-click="onClick" chart-colors="pdnColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Attached Users Graph</h5>
+        <br>
+        <div class="section scrollspy" id="attachedUsers">
+            <canvas id="line" class="chart chart-line" chart-data="usersData"
+                chart-labels="usersLabels" chart-series="usersSeries" chart-options="usersOptions"
+                chart-click="onClick" chart-colors="usersColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>IP Packets Received Graph</h5>
+        <br>
+        <div class="section scrollspy" id="ip">
+            <canvas id="line" class="chart chart-line" chart-data="ipData"
+                chart-labels="ipLabels" chart-series="ipSeries" chart-options="ipOptions"
+                chart-click="onClick" chart-colors="ipColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Downlink message kbytes sent in S1 interface</h5>
+        <br>
+        <div class="section scrollspy" id="downlink">
+            <canvas id="line" class="chart chart-line" chart-data="dwnData"
+                chart-labels="dwnLabels" chart-series="dwnSeries" chart-options="dwnOptions"
+                chart-click="onClick" chart-colors="dwnColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>SAE Bearer and Request Graph</h5>
+        <br>
+        <div class="section scrollspy" id="sae">
+            <canvas id="line" class="chart chart-line" chart-data="saeData"
+                chart-labels="saeLabels" chart-series="saeSeries" chart-options="saeOptions"
+                chart-click="onClick" chart-colors="saeColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Uplink message kbytes sent in S1 interface</h5>
+        <br>
+        <div class="section scrollspy" id="uplink">
+            <canvas id="line" class="chart chart-line" chart-data="upData"
+                chart-labels="upLabels" chart-series="upSeries" chart-options="upOptions"
+                chart-click="onClick" chart-colors="upColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Real Time PDN connection Graph</h5>
+        <br>
+        <div class="section scrollspy" id="realtime">
+            <canvas id="line" class="chart chart-line" chart-data="realData"
+                chart-labels="realLabels" chart-series="realSeries" chart-options="realOptions"
+                chart-click="onClick" chart-colors="realColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Real Time Attached Users Graph</h5>
+        <br>
+        <div class="section scrollspy" id="realtimeU">
+            <canvas id="line" class="chart chart-line" chart-data="realUData"
+                chart-labels="realULabels" chart-series="realUSeries" chart-options="realUOptions"
+                chart-click="onClick" chart-colors="realUColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Maximum Attached Users Graph</h5>
+        <br>
+        <div class="section scrollspy" id="maxU">
+            <canvas id="line" class="chart chart-line" chart-data="maxUData"
+                chart-labels="maxULabels" chart-series="maxUSeries" chart-options="maxUOptions"
+                chart-click="onClick" chart-colors="maxUColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Service Request Graph</h5>
+        <br>
+        <div class="section scrollspy" id="service">
+            <canvas id="line" class="chart chart-line" chart-data="serviceData"
+                chart-labels="serviceLabels" chart-series="serviceSeries" chart-options="serviceOptions"
+                chart-click="onClick" chart-colors="serviceColors">
+            </canvas>
+        </div>
+        <br><br>
+        <h5>Paging Requests Graph</h5>
+        <br>
+        <div class="section scrollspy" id="paging">
+            <canvas id="line" class="chart chart-line" chart-data="pagingData"
+                chart-labels="pagingLabels" chart-series="pagingSeries" chart-options="pagingOptions"
+                chart-click="onClick" chart-colors="pagingColors">
+            </canvas>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div ng-hide="single">
+
     </div>
 </div>
