@@ -55,12 +55,19 @@ angular.module('webLteApp')
 
 
       $scope.plotAggregatedGraphs = function() {
+        var i = 0;
         DataService.getS1Data()
           .then(function(response) {
+            
             var data = response.data;
             var labels = [];
-            data.forEach(function(datum) {
+            data.some(function(datum) {
+              i = i + 1;
+              if(i == 30){
+                return true;
+              }
               labels.push(datum.startTime);
+              
               $scope.avBN.push(datum.averageBearerNumber);
               $scope.mdBN.push(datum.maximumBearerNumber);
               $scope.avDN.push(datum.averageDedicatedBearerNumber);
@@ -109,6 +116,10 @@ angular.module('webLteApp')
             $scope.plotPagingGraph(labels, $scope.pageReq, $scope.pageSuc);
 
           }, function(error) { });
+      }
+
+      $scope.plotSingleGraph = function(labels, values, series) {
+        // $scope.labels = 
       }
 
       $scope.plotS1Graph = function(labels, avBN, mdBN, avDN) {
